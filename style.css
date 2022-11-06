@@ -1,0 +1,149 @@
+/* General Styles */
+:root {
+  font-size: 62.5%;
+  --bg: url('./assets/bg-yellow.svg');
+  --background-color: #121214;
+  --card-color-background: #1d1c19;
+  --card-color-primary: #f7dd43;
+  --card-title-border-color: #746615;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background-color) var(--bg) no-repeat center/cover;
+}
+
+body * {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+}
+
+body.copa-blue {
+  --bg: url('./assets/bg-blue.svg');
+  --card-color-background: #202024;
+  --card-color-primary: #338af3;
+  --card-title-border-color: #338af3;
+}
+
+body.copa-green {
+  --bg: url('./assets/bg-green.svg');
+  --card-color-background: #1a1f1b;
+  --card-color-primary: #047c3f;
+  --card-title-border-color: #047c3f;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Main Content */
+#app {
+  width: fit-content;
+  margin: 5.2rem auto;
+}
+
+header {
+  margin-bottom: 6.3rem;
+  text-align: center;
+}
+
+#cards {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.card {
+  padding: 3.2rem 2.3rem;
+  text-align: center;
+  background-color: var(--card-color-background);
+  border-bottom: 0.2rem solid var(--card-color-primary);
+  border-radius: 0.6rem;
+}
+
+.card h2 {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  width: fit-content;
+  margin: 0 auto 5.3rem;
+  padding: 0.8rem 1.6rem;
+  font-size: 2.4rem;
+  line-height: 125%;
+  color: #f7dd43;
+  border: 0.1rem solid var(--card-title-border-color);
+  border-radius: 0.6rem;
+}
+
+.card h2 span {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  color: #e1e1e6;
+}
+
+.card ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  width: 27rem;
+}
+
+.card ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card ul li + li {
+  padding-top: 2.4rem;
+  border-top: 0.1rem solid #323238;
+}
+
+.card ul li strong {
+  font-size: 3.2rem;
+  line-height: 125%;
+  font-weight: 900;
+  color: #e1e1e6;
+}
+
+/* Animations */
+.card {
+  opacity: 0;
+  animation: appear 0.7s forwards;
+}
+
+.card ul li img,
+.card ul li strong,
+.card h2 {
+  transition: transform 0.3s;
+}
+
+.card ul li strong:hover,
+.card ul li img:hover,
+.card h2:hover {
+  transform: scale(1.1);
+}
+
+@keyframes appear {
+  0% {
+    transform: translateY(10rem);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media only screen and (min-width: 769px) {
+  #cards {
+    max-width: 67rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
